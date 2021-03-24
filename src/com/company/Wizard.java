@@ -8,11 +8,13 @@ public class Wizard extends Personnage {
 
 
     public String getPotion() {
+
         return potion;
     }
 
     public void setPotion(String potion) {
         this.potion = potion;
+
     }
 
     public String getSpell() {
