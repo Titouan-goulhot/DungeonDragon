@@ -90,5 +90,9 @@ public class Personnage {
         return (int) Math.floor(Math.random() * (max - min) + min);
     }
 
+    public String toString() {
+        return "Vous aurez donc  [nom = " + getName() + " , niveau de vie = " + getLife()
+                + " , force =" + getStrenght();
+    }
 
 }

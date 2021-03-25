@@ -36,6 +36,12 @@ public class Warrior extends Personnage {
 
     }
 
+    //-------------------- METHODS-----------------------------//
+    public String toString() {
+        return "Vous aurez donc  [nom = " + getName() + " , niveau de vie = " + getLife()
+                + " , force =" + getStrenght()
+                + " et la maison vous offre une super épée ainsi qu'un bouclier]";
+    }
 
 
 }

@@ -51,75 +51,70 @@ public class Accueil {
             System.out.println("Un guerrier... un vrai !");
             System.out.println("C'est quoi ton petit nom ? ");
             Scanner clavier = new Scanner(System.in); //Instanciation de l'objet Scanner
-
             String name = clavier.nextLine();
             warriorClass.setName(name);
-            System.out.println(" Vous aurez donc  [nom = " + warriorClass.getName() + " , niveau de vie = " + warriorClass.getLife()
-                    + " , force =" + warriorClass.getStrenght()
-                    + " et la maison vous offre une super épée ainsi qu'un bouclier]");
-            System.out.println("Est-ce que ça te convient ? ");
-            System.out.println(">1 - Allons-y ! ");
-            System.out.println(">2 - Heu... j'imaginais pas ça comme ça... ");
-            character = clavier.nextInt();
-            if (character == 2) {
-                System.out.println("Alors recommençons...");
-                createCharacter();
-            }
-
+            System.out.println(warriorClass.toString());
 
         } else { // Si c'est Wizzard ...
             Personnage wizardClass = new Wizard();
             System.out.println("Why not !");
             System.out.println("C'est quoi ton petit nom ? ");
-
             Scanner clavier = new Scanner(System.in);
             String name = clavier.nextLine();
             wizardClass.setName(name);
-            System.out.println(" Donc si on récapitule : [nom = " + wizardClass.getName() + " , niveau de vie = " + wizardClass.getLife()
-                    + " , force = " + wizardClass.getStrenght() + " + quelques philtres... A consommer avec modération ]");
-            System.out.println("Est-ce que ça te convient ? ");
-            System.out.println(">1 - Allons-y ! ");
-            System.out.println(">2 - Heu... j'imaginais pas ça comme ça... ");
-            character = clavier.nextInt();
-            if (character == 2) {
-                System.out.println("Alors recommençons...");
-                createCharacter();
-            }
+            System.out.println(wizardClass.toString());
         }
-        startGame();
+        System.out.println("Est-ce que ça te convient ? ");
+        System.out.println(">1 - Allons-y ! ");
+        System.out.println(">2 - Heu... j'imaginais pas ça comme ça... ");
+        character = clavier.nextInt();
+        if (character == 2) {
+            System.out.println("Alors recommençons...");
+            createCharacter();
+        }
+        try {
+            startGame();
+        } catch (PersonnageHorsPlateauException e) {
+            System.out.println(e.getMessage());
+        }
         // PAS DE INSTANCE OF !
     }
 
 
-    public void startGame() {
+    public void startGame() throws PersonnageHorsPlateauException {
 
         Dice die = new Dice();
 
-        int actualCase = 1;
+
         System.out.println("Alors Go ! Vous commencez à la 1er Case");
+        // PersonnageHorsPlateauException exception = new PersonnageHorsPlateauException();
+
+        Board board = new Board();
 
         do {
-            int lance= die.randomDice();
-             actualCase = actualCase + lance;
+            int lance = die.randomDice();
+
+            //On s'assure dans le setter de ne pas dépasser la case 64
+            board.setCurrentPlace(board.getCurrentPlace() + lance);
             System.out.println("Le dés a fait " + lance);
-            System.out.println("vous êtes donc à la case" + actualCase);
-            if (actualCase >= 64) {
-                actualCase = 64;
-            }
+            System.out.println("vous êtes donc à la case" + board.getCurrentPlace() + "/64");
+
         }
-        while (actualCase < 64);
+        while (board.getCurrentPlace() < 64);
 
 
-            System.out.println("Ce fut rapide... Mais vous avez finit le jeu");
-            System.out.println("Voulez-vous rejouer ? ");
-            System.out.println(">1 - Encooore ! ");
-            System.out.println(">2- C'est bon j'ai eu ma dose...");
-            int replay = clavier.nextInt();
-            if (replay == 1) {
-                startGame();
-            } else {
-                System.out.println("Et bah à la prochaine alors...");
-            }
+        System.out.println("Ce fut rapide... Mais vous avez finit le jeu");
+
+
+        System.out.println("Voulez-vous rejouer ? ");
+        System.out.println(">1 - Encooore ! ");
+        System.out.println(">2- C'est bon j'ai eu ma dose...");
+        int replay = clavier.nextInt();
+        if (replay == 1) {
+            startGame();
+        } else {
+            System.out.println("Et bah à la prochaine alors...");
+        }
 
     }
 

@@ -33,6 +33,10 @@ public class Wizard extends Personnage {
         this.setStrenght(this.getRandomInt(8, 15));
 
     }
-
+    public String toString() {
+        return "Vous aurez donc  [nom = " + getName() + " , niveau de vie = " + getLife()
+                + " , force =" + getStrenght()
+                +" + quelques philtres... A consommer avec modération ]";
+    }
 
 }
