@@ -45,25 +45,24 @@ public class Accueil {
         int warrior = 1;
         int character = clavier.nextInt();
 
+        //Polymorphisme = "un warrior est un personnage MAIS un personnage n'est pas forcement un WARRIOR"
+        Personnage player;
+
         if (character == warrior) { // SI c'est Warrior ..
-            //Polymorphisme = "un warrior est un personnage MAIS un personnage n'est pas forcement un WARRIOR"
-            Personnage warriorClass = new Warrior();
+            player = new Warrior();
             System.out.println("Un guerrier... un vrai !");
-            System.out.println("C'est quoi ton petit nom ? ");
-            Scanner clavier = new Scanner(System.in); //Instanciation de l'objet Scanner
-            String name = clavier.nextLine();
-            warriorClass.setName(name);
-            System.out.println(warriorClass.toString());
 
         } else { // Si c'est Wizzard ...
-            Personnage wizardClass = new Wizard();
+           player = new Wizard();
             System.out.println("Why not !");
-            System.out.println("C'est quoi ton petit nom ? ");
-            Scanner clavier = new Scanner(System.in);
-            String name = clavier.nextLine();
-            wizardClass.setName(name);
-            System.out.println(wizardClass.toString());
         }
+
+        System.out.println("C'est quoi ton petit nom ? ");
+        Scanner clavier = new Scanner(System.in);
+        String name = clavier.nextLine();
+        //La méthode SetName s'appliquera bien à la bonne classe...
+        player.setName(name);
+        System.out.println(player.toString());
         System.out.println("Est-ce que ça te convient ? ");
         System.out.println(">1 - Allons-y ! ");
         System.out.println(">2 - Heu... j'imaginais pas ça comme ça... ");
@@ -72,40 +71,36 @@ public class Accueil {
             System.out.println("Alors recommençons...");
             createCharacter();
         }
-        try {
-            startGame();
-        } catch (PersonnageHorsPlateauException e) {
-            System.out.println(e.getMessage());
-        }
+        startGame();
+
         // PAS DE INSTANCE OF !
     }
 
-
-    public void startGame() throws PersonnageHorsPlateauException {
+    public void startGame() {
 
         Dice die = new Dice();
-
-
         System.out.println("Alors Go ! Vous commencez à la 1er Case");
-        // PersonnageHorsPlateauException exception = new PersonnageHorsPlateauException();
-
         Board board = new Board();
 
         do {
             int lance = die.randomDice();
 
-            //On s'assure dans le setter de ne pas dépasser la case 64
-            board.setCurrentPlace(board.getCurrentPlace() + lance);
-            System.out.println("Le dés a fait " + lance);
-            System.out.println("vous êtes donc à la case" + board.getCurrentPlace() + "/64");
+            //On s'assure dans le setter de ne pas dépassé la case 64
+            try {
+                board.setCurrentPlace(board.getCurrentPlace() + lance);
+            } catch (PersonnageHorsPlateauException e) {
+                System.out.println(e.getMessage());
+            }
+            finally{
+                System.out.println("Le dés a fait " + lance);
+                System.out.println(board.toString());
+            }
 
         }
         while (board.getCurrentPlace() < 64);
 
 
         System.out.println("Ce fut rapide... Mais vous avez finit le jeu");
-
-
         System.out.println("Voulez-vous rejouer ? ");
         System.out.println(">1 - Encooore ! ");
         System.out.println(">2- C'est bon j'ai eu ma dose...");

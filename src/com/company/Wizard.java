@@ -34,8 +34,8 @@ public class Wizard extends Personnage {
 
     }
     public String toString() {
-        return "Vous aurez donc  [nom = " + getName() + " , niveau de vie = " + getLife()
-                + " , force =" + getStrenght()
+//On fait appel à la méthode tostring de la classe parent avec super.
+        return super.toString()
                 +" + quelques philtres... A consommer avec modération ]";
     }
 

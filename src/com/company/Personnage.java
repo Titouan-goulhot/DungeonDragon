@@ -1,16 +1,16 @@
 package com.company;
 
-public class Personnage {
-    //Attribut privés
-    private String name;
+public abstract class Personnage {
+    //-------------------------ATTRIBUTS-------------------------------------//
     private int life;
     private int minPv;
     private int maxPv;
     private int strenght;
     private int minStrength;
     private int maxStrength;
+    private String name;
 
-    // CONSTRUCTEURS//
+    //-----------------------CONSTRUCTEURS---------------------::
 
     public Personnage(String name, int life, int strenght){
         this.name= name;
@@ -27,7 +27,7 @@ public class Personnage {
     }
 
 
-    //-----------------------------------------------------------------------------------------//
+    // -----------------------------GETTER & SETTER--------------------------- //
     public int getLife() {
         return life;
     }
@@ -84,6 +84,9 @@ public class Personnage {
     public void setName(String name) {
         this.name = name;
     }
+
+    //---------------------------------METHODS--------------------------------------//
+
 
     //Création d'une méthode pour avoir un niveau de vie et de force au hasard en fonction des valeurs d'attributs communiqués
     public int getRandomInt(int min, int max) {
