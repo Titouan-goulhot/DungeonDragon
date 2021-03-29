@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Personnage;
 
 public abstract class Personnage {
     //-------------------------ATTRIBUTS-------------------------------------//

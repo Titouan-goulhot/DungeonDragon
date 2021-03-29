@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Plateau;
 
 public abstract class Case {
     private String name;
@@ -6,9 +6,8 @@ public abstract class Case {
 
     public Case(String name, int impact) {
         this.name = name;
-
-
     }
+
     public Case(){
 
     }

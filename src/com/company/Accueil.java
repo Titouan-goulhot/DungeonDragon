@@ -1,5 +1,12 @@
 package com.company;
 
+import com.company.Personnage.Personnage;
+import com.company.Personnage.Warrior;
+import com.company.Personnage.Wizard;
+import com.company.Plateau.Board;
+import com.company.Plateau.Dice;
+import com.company.Plateau.PersonnageHorsPlateauException;
+
 import java.util.Scanner;
 
 public class Accueil {

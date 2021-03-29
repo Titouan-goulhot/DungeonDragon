@@ -1,6 +1,9 @@
-package com.company;
+package com.company.Weapons;
 
-public class Weapon extends Case{
+import com.company.Personnage.Personnage;
+import com.company.Plateau.Case;
+
+public class Weapon extends Case {
 
     //-------------------------ATTRIBUTS-------------------------------------//
     private String name;

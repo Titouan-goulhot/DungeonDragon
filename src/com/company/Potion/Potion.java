@@ -1,20 +1,24 @@
-package com.company;
+package com.company.Potion;
 
-public class Potion extends Case{
+import com.company.Personnage.Personnage;
+import com.company.Plateau.Case;
+
+public class Potion extends Case {
     //-------------------------ATTRIBUTS-------------------------------------//
 
     private String name;
     private int cure;
 
     //-----------------------CONSTRUCTEURS---------------------------------//
-    public Potion (String name, int cure){
+    public Potion(String name, int cure) {
         this.name = name;
         this.cure = cure;
     }
 
-    public Potion(){
+    public Potion() {
 
     }
+
     // -----------------------------GETTER & SETTER--------------------------- //
     public String getName() {
         return name;
@@ -42,11 +46,7 @@ public class Potion extends Case{
 
     @Override
     public void interaction() {
-        Personnage player = new Personnage() {
-            @Override
-            public int getLife() {
-                return getLife();
-            }
-        };
+
+
     }
 }

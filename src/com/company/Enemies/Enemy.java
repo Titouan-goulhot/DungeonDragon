@@ -1,4 +1,6 @@
-package com.company;
+package com.company.Enemies;
+
+import com.company.Plateau.Case;
 
 public class Enemy extends Case {
     //-------------------------ATTRIBUTS-------------------------------------//
@@ -51,10 +53,6 @@ public class Enemy extends Case {
 
     }
 
-    public void interaction(){
-
-
-
-    }
+    public  void interaction(){    }
 }
 

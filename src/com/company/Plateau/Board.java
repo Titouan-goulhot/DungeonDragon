@@ -1,4 +1,10 @@
-package com.company;
+package com.company.Plateau;
+
+import com.company.Potion.*;
+import com.company.Enemies.Dragon;
+import com.company.Enemies.Goblin;
+import com.company.Enemies.Sorcier;
+import com.company.Weapons.*;
 
 import java.util.ArrayList;
 
@@ -28,27 +34,29 @@ public class Board {
 
     public void fillBoard() {
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 64; i++) {
+
+            //CREER UNE METHODE POUR ENVOYER EN RANDOM LES ELEMENTS DANS LE TABLEAU
 
             board.add(new EmptyCase("empty"));
 
             //--------------------Enemy-----------------------------//
 
-            board.add(new Enemy("Gobelin", 6, 1));
-            board.add(new Enemy("Sorcier", 9, 2));
-            board.add(new Enemy("Dragon", 15, 4));
+            board.add(new Goblin());
+            board.add(new Sorcier());
+            board.add(new Dragon());
 
             //--------------------Weapon-----------------------------//
 
-            board.add(new Weapon("Sword", 4));
-            board.add(new Weapon("Massue", 3));
-            board.add(new Weapon("Eclair", 2));
-            board.add(new Weapon("Boule de Feu", 7));
+            board.add(new Sword());
+            board.add(new Massues());
+            board.add(new Eclair());
+            board.add(new BouleDeFeu());
 
             //--------------------Potion-----------------------------//
 
-            board.add(new Potion("Potion de vie standard ", 2));
-            board.add(new Potion("Grande potion de vie ", 5));
+            board.add(new PotionStandard());
+            board.add(new GrandePotion());
 
 
         }
