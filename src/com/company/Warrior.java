@@ -8,9 +8,6 @@ public class Warrior extends Personnage {
 
     //CONSTRUCTEURS
 
-    /*public Warrior(){
-        super("Gerald", 7, 9);
-    }*/
 
 
     public String getSword() {

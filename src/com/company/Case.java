@@ -1,20 +1,28 @@
 package com.company;
 
-public class Case {
+public abstract class Case {
     private String name;
-    private int impact;
+
 
     public Case(String name, int impact) {
         this.name = name;
-        this.impact = impact;
+
 
     }
     public Case(){
 
     }
 
+    public Case(String name){
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return name;
     }
+
+    public abstract void interaction();
+
+
 }

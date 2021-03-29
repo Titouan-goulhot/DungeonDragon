@@ -53,7 +53,7 @@ public class Accueil {
             System.out.println("Un guerrier... un vrai !");
 
         } else { // Si c'est Wizzard ...
-           player = new Wizard();
+            player = new Wizard();
             System.out.println("Why not !");
         }
 
@@ -79,7 +79,7 @@ public class Accueil {
     public void startGame() {
 
         Dice die = new Dice();
-        System.out.println("Alors Go ! Vous commencez à la 1er Case");
+        System.out.println("Alors Go ! Vous commencez à la Case 0 ");
         Board board = new Board();
 
         do {
@@ -90,10 +90,10 @@ public class Accueil {
                 board.setCurrentPlace(board.getCurrentPlace() + lance);
             } catch (PersonnageHorsPlateauException e) {
                 System.out.println(e.getMessage());
-            }
-            finally{
+            } finally {
                 System.out.println("Le dés a fait " + lance);
                 System.out.println(board.toString());
+                board.fillBoard();
             }
 
         }

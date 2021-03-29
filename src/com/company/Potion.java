@@ -35,5 +35,18 @@ public class Potion extends Case{
     //---------------------------------METHODS--------------------------------------//
 
 
+    @Override
+    public String toString() {
+        return "une " + name + "qui vous rends " + cure + " PV";
+    }
 
+    @Override
+    public void interaction() {
+        Personnage player = new Personnage() {
+            @Override
+            public int getLife() {
+                return getLife();
+            }
+        };
+    }
 }

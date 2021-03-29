@@ -44,5 +44,17 @@ public class Enemy extends Case {
     }
 //---------------------------------METHODS--------------------------------------//
 
+    @Override
+    public String toString() {
+        return "Un " + name + " qui a  " + strength + " de Force et " + life + " PV";
+
+
+    }
+
+    public void interaction(){
+
+
+
+    }
 }
 

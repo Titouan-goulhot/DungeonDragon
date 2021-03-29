@@ -35,4 +35,16 @@ public class Weapon extends Case{
     }
 //---------------------------------METHODS--------------------------------------//
 
+
+    @Override
+    public String toString() {
+        return "Un " + name + " qui ajoute " + damage + " à vos point de dégats";
+    }
+
+    @Override
+    public void interaction() {
+    Personnage player = new Personnage() {
+
+    };
+    }
 }
