@@ -1,5 +1,7 @@
 package com.company.Plateau;
 
+import com.company.Personnage.Personnage;
+
 public class EmptyCase extends Case {
 
     public EmptyCase(String name) {
@@ -12,7 +14,7 @@ public class EmptyCase extends Case {
     }
 
     @Override
-    public void interaction() {
+    public void interaction(Personnage personnage) {
         System.out.println( "la case es vide");
     }
 

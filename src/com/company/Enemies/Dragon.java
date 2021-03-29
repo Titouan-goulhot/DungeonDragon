@@ -56,7 +56,7 @@ public class Dragon extends Enemy {
 
     @Override
     public String toString() {
-        return "Un " + name + "qui à une force de " + strenght + " et " + life + " PV";
+        return "Un " + name + " qui à une force de " + strenght + " et " + life + " PV";
 
     }
 }

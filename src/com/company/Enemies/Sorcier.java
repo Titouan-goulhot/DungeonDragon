@@ -57,7 +57,7 @@ public class Sorcier extends Enemy {
     //-------------------- METHODS-----------------------------//
     @Override
     public String toString() {
-        return "Un " + name + "qui à une force de " + strenght + " et " + life + " PV";
+        return "Un " + name + " qui à une force de " + strenght + " et " + life + " PV";
 
     }
 }

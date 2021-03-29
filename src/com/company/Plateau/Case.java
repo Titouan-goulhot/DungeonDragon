@@ -1,5 +1,7 @@
 package com.company.Plateau;
 
+import com.company.Personnage.Personnage;
+
 public abstract class Case {
     private String name;
 
@@ -21,7 +23,7 @@ public abstract class Case {
         return name;
     }
 
-    public abstract void interaction();
+    public abstract void interaction(Personnage personnage);
 
 
 }

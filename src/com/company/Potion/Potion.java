@@ -45,7 +45,7 @@ public class Potion extends Case {
     }
 
     @Override
-    public void interaction() {
+    public void interaction(Personnage personnage) {
 
 
     }

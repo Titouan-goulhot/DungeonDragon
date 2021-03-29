@@ -21,7 +21,7 @@ public class GrandePotion extends Potion {
 
     @Override
     public String toString() {
-        return "une " + name + "qui vous rends " + cure + " PV";
+        return "une " + name + " qui vous rends " + cure + " PV";
     }
 
 

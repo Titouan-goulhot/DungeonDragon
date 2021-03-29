@@ -45,9 +45,7 @@ public class Weapon extends Case {
     }
 
     @Override
-    public void interaction() {
-    Personnage player = new Personnage() {
+    public void interaction(Personnage personnage) {
 
-    };
     }
 }
