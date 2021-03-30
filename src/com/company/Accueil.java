@@ -93,14 +93,28 @@ public class Accueil {
             //On s'assure dans le setter de ne pas dépasser la case 64
             try {
                 board.setCurrentPlace(board.getCurrentPlace() + lance);
-                player.getLife();
-           // break;
+                player.dead(player.getLife());
+                // break;
 
-
-
-            } catch (PersonnageHorsPlateauException e) {
+            } catch (PersonnageHorsPlateauException | PersonnageMort e) {
                 System.out.println(e.getMessage());
-            }finally {
+                if (player.getLife() == 0) {
+
+                    System.out.println("Ce fut rapide... Mais vous avez finit le jeu");
+                    System.out.println("Voulez-vous rejouer ? ");
+                    System.out.println(">1 - Encooore ! ");
+                    System.out.println(">2- C'est bon j'ai eu ma dose...");
+                    int replay = clavier.nextInt();
+                    if (replay == 1) {
+                        startGame(player);
+                    } else {
+                        System.out.println("Et bah à la prochaine alors...");
+                        break;
+                    }
+
+                }
+
+            } finally {
                 System.out.println("Le dés a fait " + lance);
                 System.out.println(board.toString());
                 board.fillBoard();
@@ -111,16 +125,18 @@ public class Accueil {
         while (board.getCurrentPlace() < 64);
 
 
-        System.out.println("Ce fut rapide... Mais vous avez finit le jeu");
-        System.out.println("Voulez-vous rejouer ? ");
-        System.out.println(">1 - Encooore ! ");
-        System.out.println(">2- C'est bon j'ai eu ma dose...");
-        int replay = clavier.nextInt();
-        if (replay == 1) {
-            startGame(player);
-        } else {
-            System.out.println("Et bah à la prochaine alors...");
-        }
+
+            System.out.println("Ce fut rapide... Mais vous avez finit le jeu");
+            System.out.println("Voulez-vous rejouer ? ");
+            System.out.println(">1 - Encooore ! ");
+            System.out.println(">2- C'est bon j'ai eu ma dose...");
+            int replay = clavier.nextInt();
+            if (replay == 1) {
+                startGame(player);
+            } else {
+                System.out.println("Et bah à la prochaine alors...");
+            }
+
 
     }
 

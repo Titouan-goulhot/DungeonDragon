@@ -16,5 +16,6 @@ public class PersonnageMort extends Throwable {
                 "░ ░   ░   ░   ▒   ░      ░      ░      ░ ░ ░ ▒       ░░     ░     ░░   ░ \n" +
                 "      ░       ░  ░       ░      ░  ░       ░ ░        ░     ░  ░   ░     \n" +
                 "                                                     ░                   \n");
+
     }
 }

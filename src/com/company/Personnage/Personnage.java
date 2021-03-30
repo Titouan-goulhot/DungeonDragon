@@ -1,5 +1,6 @@
 package com.company.Personnage;
 
+import com.company.Enemies.Enemy;
 import com.company.Plateau.PersonnageMort;
 
 public  class Personnage {
@@ -102,10 +103,12 @@ public  class Personnage {
                 + " , force =" + getStrenght();
     }
 
-    /*public void setLife(int life) throws PersonnageMort {
-        if(life == 0 ){
+    public void dead(int life) throws PersonnageMort {
+        if(getLife() <= 0 ){
             throw new PersonnageMort();
         }
-    }*/
+
+
+    }
 
 }
