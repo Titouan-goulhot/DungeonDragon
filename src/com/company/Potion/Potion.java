@@ -44,9 +44,12 @@ public class Potion extends Case {
         return "une " + name + "qui vous rends " + cure + " PV";
     }
 
+    //Méthode Abstract hérité de la classe parent Case (qui est en Abstract)
     @Override
-    public void interaction(Personnage personnage) {
+    public  void interaction(Personnage personnage) {
 
+        personnage.setLife(personnage.getLife() + this.getCure());
+        System.out.println("Vous avez gagné " + getCure() + " point de vie \nce que vous fait " + personnage.getLife());
 
     }
 }

@@ -3,9 +3,7 @@ package com.company;
 import com.company.Personnage.Personnage;
 import com.company.Personnage.Warrior;
 import com.company.Personnage.Wizard;
-import com.company.Plateau.Board;
-import com.company.Plateau.Dice;
-import com.company.Plateau.PersonnageHorsPlateauException;
+import com.company.Plateau.*;
 
 import java.util.Scanner;
 
@@ -78,12 +76,12 @@ public class Accueil {
             System.out.println("Alors recommençons...");
             createCharacter();
         }
-        startGame();
+        startGame(player);
 
         // PAS DE INSTANCE OF !
     }
 
-    public void startGame() {
+    public void startGame(Personnage player) {
 
         Dice die = new Dice();
         System.out.println("Alors Go ! Vous commencez à la Case 0 ");
@@ -92,15 +90,21 @@ public class Accueil {
         do {
             int lance = die.randomDice();
 
-            //On s'assure dans le setter de ne pas dépassé la case 64
+            //On s'assure dans le setter de ne pas dépasser la case 64
             try {
                 board.setCurrentPlace(board.getCurrentPlace() + lance);
+                player.getLife();
+           // break;
+
+
+
             } catch (PersonnageHorsPlateauException e) {
                 System.out.println(e.getMessage());
-            } finally {
+            }finally {
                 System.out.println("Le dés a fait " + lance);
                 System.out.println(board.toString());
                 board.fillBoard();
+                board.getBoard().get(board.getCurrentPlace()).interaction(player);
             }
 
         }
@@ -113,7 +117,7 @@ public class Accueil {
         System.out.println(">2- C'est bon j'ai eu ma dose...");
         int replay = clavier.nextInt();
         if (replay == 1) {
-            startGame();
+            startGame(player);
         } else {
             System.out.println("Et bah à la prochaine alors...");
         }

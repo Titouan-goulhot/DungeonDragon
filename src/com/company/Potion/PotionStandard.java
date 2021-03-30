@@ -11,7 +11,7 @@ public class PotionStandard extends Potion{
 
     public PotionStandard() {
         super.setName("Potion Standard");
-        super.setCure(3);
+        super.setCure(2);
     }
 
     public PotionStandard(String name, int cure){
@@ -23,7 +23,7 @@ public class PotionStandard extends Potion{
 
     @Override
     public String toString() {
-        return "une " + name + " qui vous rends " + cure + " PV";
+        return "une " + getName() + " qui vous rends " + getCure() + " PV";
     }
 
 

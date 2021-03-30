@@ -1,11 +1,13 @@
 package com.company.Enemies;
 
-public class Sorcier extends Enemy {
+import com.company.Personnage.Personnage;
+
+public  class Sorcier extends Enemy {
     //-------------------------ATTRIBUTS-------------------------------------//
 
     private String name;
     private int life;
-    private int strenght;
+    private int strength = 2;
 
 
 //-----------------------CONSTRUCTEURS---------------------------------//
@@ -14,13 +16,13 @@ public class Sorcier extends Enemy {
     public Sorcier(String name, int life, int strenght) {
         this.name = name;
         this.life = life;
-        this.strenght = strenght;
+        this.strength = strength;
     }
 
     public Sorcier() {
         name = "Sorcier";
         life = 9;
-        strenght = 2;
+        strength = 2;
     }
 
 // -----------------------------GETTER & SETTER--------------------------- //
@@ -46,18 +48,19 @@ public class Sorcier extends Enemy {
         this.life = life;
     }
 
-    public int getStrenght() {
-        return strenght;
+    public int getStrength() {
+        return strength;
     }
 
-    public void setStrenght(int strenght) {
-        this.strenght = strenght;
+    public void setStrength(int strenght) {
+        this.strength = strenght;
     }
 
     //-------------------- METHODS-----------------------------//
     @Override
     public String toString() {
-        return "Un " + name + " qui à une force de " + strenght + " et " + life + " PV";
+        return "Un " + name + " qui à une force de " + strength + " et " + life + " PV";
 
     }
+
 }

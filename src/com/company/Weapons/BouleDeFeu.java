@@ -19,6 +19,27 @@ public class BouleDeFeu extends Weapon{
 
 
     // -----------------------------GETTER & SETTER--------------------------- //
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public int getDamage() {
+        return damage;
+    }
+
+    @Override
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
 //---------------------------------METHODS--------------------------------------//
 
 

@@ -1,6 +1,8 @@
 package com.company.Personnage;
 
-public abstract class Personnage {
+import com.company.Plateau.PersonnageMort;
+
+public  class Personnage {
     //-------------------------ATTRIBUTS-------------------------------------//
     private int life;
     private int minPv;
@@ -93,9 +95,17 @@ public abstract class Personnage {
         return (int) Math.floor(Math.random() * (max - min) + min);
     }
 
+
+
     public String toString() {
         return "Vous aurez donc  [nom = " + getName() + " , niveau de vie = " + getLife()
                 + " , force =" + getStrenght();
     }
+
+    /*public void setLife(int life) throws PersonnageMort {
+        if(life == 0 ){
+            throw new PersonnageMort();
+        }
+    }*/
 
 }

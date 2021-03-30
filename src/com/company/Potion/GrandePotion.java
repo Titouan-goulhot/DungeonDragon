@@ -1,5 +1,7 @@
 package com.company.Potion;
 
+import com.company.Personnage.Personnage;
+
 public class GrandePotion extends Potion {
     //-------------------------ATTRIBUTS-------------------------------------//
 
@@ -8,8 +10,8 @@ public class GrandePotion extends Potion {
 
     //-----------------------CONSTRUCTEURS---------------------------------//
     public GrandePotion() {
-        name = "Grande Potion de Soin";
-        cure = 5;
+        super.setName("Grande Potion de Soin");
+        super.setCure(5);
     }
 
     public GrandePotion(String name, int cure) {
@@ -21,8 +23,9 @@ public class GrandePotion extends Potion {
 
     @Override
     public String toString() {
-        return "une " + name + " qui vous rends " + cure + " PV";
+        return "une " + getName() + " qui vous rends " + getCure() + " PV";
     }
+
 
 
 }

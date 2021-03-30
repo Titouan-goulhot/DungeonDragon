@@ -1,5 +1,7 @@
 package com.company.Plateau;
 
+import com.company.Personnage.Personnage;
+import com.company.Personnage.Warrior;
 import com.company.Potion.*;
 import com.company.Enemies.Dragon;
 import com.company.Enemies.Goblin;
@@ -52,6 +54,7 @@ public class Board {
             board.add(new Massues());
             board.add(new Eclair());
             board.add(new BouleDeFeu());
+
 
             //--------------------Potion-----------------------------//
 

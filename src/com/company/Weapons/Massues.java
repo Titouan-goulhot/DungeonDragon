@@ -16,6 +16,26 @@ public class Massues extends Weapon{
         this.damage = damage;
     }
     // -----------------------------GETTER & SETTER--------------------------- //
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public int getDamage() {
+        return damage;
+    }
+
+    @Override
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
 //---------------------------------METHODS--------------------------------------//
 
     public String toString() {

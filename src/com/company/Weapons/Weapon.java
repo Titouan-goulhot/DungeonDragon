@@ -44,8 +44,13 @@ public class Weapon extends Case {
         return "Un " + name + " qui ajoute " + damage + " à vos point de dégats";
     }
 
+    //Méthode Abstract hérité de la classe parent Case (qui est en Abstract)
+
     @Override
     public void interaction(Personnage personnage) {
 
+        personnage.setStrenght(personnage.getStrenght() + this.getDamage());
+
+        System.out.println("Vous avez " + personnage.getStrenght() +" de force d'attaque  ");
     }
 }

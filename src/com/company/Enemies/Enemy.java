@@ -1,8 +1,9 @@
 package com.company.Enemies;
 
+import com.company.Personnage.Personnage;
 import com.company.Plateau.Case;
 
-public class Enemy extends Case {
+public  class Enemy extends Case {
     //-------------------------ATTRIBUTS-------------------------------------//
     private String name;
     private int life;
@@ -52,7 +53,14 @@ public class Enemy extends Case {
 
 
     }
+    //Méthode Abstract hérité de la classe parent Case (qui est en Abstract)
 
-    public  void interaction(){    }
+    @Override
+    public  void interaction(Personnage personnage){
+
+        personnage.setLife(personnage.getLife() - getStrength());
+        System.out.println("il vous attaque, vous perdez " + getStrength()+ " Point de vie \nIl vous en reste " + personnage.getLife());
+
+    }
 }
 
