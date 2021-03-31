@@ -1,5 +1,6 @@
 package com.company.Plateau;
 
+import com.company.Item;
 import com.company.Personnage.Personnage;
 import com.company.Personnage.Warrior;
 import com.company.Potion.*;
@@ -15,6 +16,7 @@ public class Board {
 
     //Attributs
     private ArrayList<Case> board;
+    private ArrayList<Item> item;
     private int currentPlace;
 
 
@@ -22,6 +24,7 @@ public class Board {
 
     public Board() {
         board = new ArrayList<>();
+
         currentPlace = 0;
 
 
@@ -31,7 +34,7 @@ public class Board {
 
     @Override
     public String toString() {
-        return "Le joueur est à la position " + currentPlace + "/64";
+        return "Le joueur est à la position " + currentPlace + "/64\n-----------------------------------------------------";
     }
 
     public void fillBoard() {

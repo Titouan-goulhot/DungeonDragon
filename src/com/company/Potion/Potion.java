@@ -1,5 +1,6 @@
 package com.company.Potion;
 
+import com.company.Item;
 import com.company.Personnage.Personnage;
 import com.company.Plateau.Case;
 

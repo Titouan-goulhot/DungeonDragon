@@ -1,16 +1,19 @@
 package com.company.Weapons;
 
-public class BouleDeFeu extends Weapon{
+import com.company.Personnage.Personnage;
+import com.company.Personnage.Wizard;
+
+public class BouleDeFeu extends Weapon {
     //-------------------------ATTRIBUTS-------------------------------------//
     private String name;
     private int damage;
 
     //-----------------------CONSTRUCTEURS---------------------::
 
-   public BouleDeFeu(){
-       name = "Boule De Feu";
-       damage = 7;
-   }
+    public BouleDeFeu() {
+        name = "Boule De Feu";
+        damage = 7;
+    }
 
     public BouleDeFeu(String name, int damage) {
         this.name = name;
@@ -43,10 +46,21 @@ public class BouleDeFeu extends Weapon{
 //---------------------------------METHODS--------------------------------------//
 
 
-
     public String toString() {
 
-        return  "Un " + name + " qui ajoute " + damage + " à vos point de dégats" + " Condition particulière : il faut être un Mage...";
+        return "Un " + name + " qui ajoute " + damage + " à vos point de dégats" + " Condition particulière : il faut être un Mage...";
 
+    }
+
+    @Override
+    public void interaction(Personnage personnage) {
+
+        if (personnage.isSpellUser()) {
+            personnage.setStrength(personnage.getStrength() + this.getDamage());
+            System.out.println("Vous avez " + personnage.getStrength() + " de force d'attaque  ");
+        } else {
+            System.out.println("Et tu ne vas pas prendre ça puisqu'après tu vas te brûler les doigts et tu vas encore venir te plaindre... ");
+
+        }
     }
 }

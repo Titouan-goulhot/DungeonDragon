@@ -1,8 +1,6 @@
 package com.company.Personnage;
 
 
-
-
 public class Wizard extends Personnage {
 
     private String potion;
@@ -32,7 +30,9 @@ public class Wizard extends Personnage {
     //Constructeur au nom de la la classe qui utlilise la méthode de la classe parente com.company.Personnage permettant de tirer un chiffre au hasard pour la vie et la force.
     public Wizard() {
         this.setLife(this.getRandomInt(3, 6));
-        this.setStrenght(this.getRandomInt(8, 15));
+        this.setStrength(this.getRandomInt(8, 15));
+        this.setWeaponUser(false);
+        this.setSpellUser(true);
 
     }
     public String toString() {

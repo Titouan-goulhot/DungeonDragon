@@ -1,5 +1,6 @@
 package com.company.Weapons;
 
+import com.company.Item;
 import com.company.Personnage.Personnage;
 import com.company.Plateau.Case;
 
@@ -10,13 +11,13 @@ public class Weapon extends Case {
     private int damage;
 
     //-----------------------CONSTRUCTEURS---------------------::
-    public Weapon(String name, int damage){
+    public Weapon(String name, int damage) {
         this.name = name;
         this.damage = damage;
 
     }
 
-    public Weapon(){
+    public Weapon() {
 
     }
     // -----------------------------GETTER & SETTER--------------------------- //
@@ -49,8 +50,8 @@ public class Weapon extends Case {
     @Override
     public void interaction(Personnage personnage) {
 
-        personnage.setStrenght(personnage.getStrenght() + this.getDamage());
+        personnage.setStrength(personnage.getStrength() + this.getDamage());
 
-        System.out.println("Vous avez " + personnage.getStrenght() +" de force d'attaque  ");
+        System.out.println("Vous avez " + personnage.getStrength() + " de force d'attaque  ");
     }
 }

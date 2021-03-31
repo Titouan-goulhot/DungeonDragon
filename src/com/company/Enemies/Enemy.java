@@ -1,9 +1,10 @@
 package com.company.Enemies;
 
+import com.company.InterfaceCombat;
 import com.company.Personnage.Personnage;
 import com.company.Plateau.Case;
 
-public  class Enemy extends Case {
+public class Enemy extends Case {
     //-------------------------ATTRIBUTS-------------------------------------//
     private String name;
     private int life;
@@ -56,10 +57,22 @@ public  class Enemy extends Case {
     //Méthode Abstract hérité de la classe parent Case (qui est en Abstract)
 
     @Override
-    public  void interaction(Personnage personnage){
+    public void interaction(Personnage personnage) {
 
-        personnage.setLife(personnage.getLife() - getStrength());
-        System.out.println("il vous attaque, vous perdez " + getStrength()+ " Point de vie \nIl vous en reste " + personnage.getLife());
+        //Faire l'attaque du player 1er
+        while (getLife() > 0 && personnage.getLife() > 0) {
+            setLife(getLife() - personnage.getStrength());
+            System.out.println("Vous attaquez. Vous lui infligez " + personnage.getStrength() + "\n Il lui reste " + getLife());
+
+            if (getLife() > 0) {
+                // Puis le monstre réplique
+                personnage.setLife(personnage.getLife() - getStrength());
+                System.out.println("il vous attaque, vous perdez " + getStrength() + " Point de vie \nIl vous en reste " + personnage.getLife());
+            } else {
+                System.out.println("Vous l'avez térassé... Vous pouvez continuer ");
+            }
+        }
+
 
     }
 }

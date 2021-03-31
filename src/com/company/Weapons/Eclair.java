@@ -1,5 +1,8 @@
 package com.company.Weapons;
 
+import com.company.Personnage.Personnage;
+import com.company.Personnage.Wizard;
+
 public class Eclair extends Weapon {
     //-------------------------ATTRIBUTS-------------------------------------//
     private String name;
@@ -7,8 +10,8 @@ public class Eclair extends Weapon {
     //-----------------------CONSTRUCTEURS---------------------::
 
     public Eclair() {
-       name = "Eclair";
-       damage = 2;
+        name = "Eclair";
+        damage = 2;
     }
 
     public Eclair(String name, int damage) {
@@ -42,7 +45,19 @@ public class Eclair extends Weapon {
 
     public String toString() {
 
-        return  "Un " + name + " qui ajoute " + damage + " à vos point de dégats" +" Condition particulière : il faut être un Mage...";
+        return "Un " + name + " qui ajoute " + damage + " à vos point de dégats" + " Condition particulière : il faut être un Mage...";
 
+    }
+
+    @Override
+    public void interaction(Personnage personnage) {
+
+        if (personnage.isSpellUser()) {
+            personnage.setStrength(personnage.getStrength() + this.getDamage());
+            System.out.println("Vous avez " + personnage.getStrength() + " de force d'attaque  ");
+        } else {
+            System.out.println("Et tu ne vas pas prendre ça ... Rappelle toi ce que ça donne quand tu changes une ampoule ... ");
+
+        }
     }
 }

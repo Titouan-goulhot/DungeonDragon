@@ -1,19 +1,17 @@
-package com.company.Plateau;
+package com.company;
 
-import com.company.InterfaceCombat;
 import com.company.Personnage.Personnage;
 
-public abstract class Case {
+public abstract class Item {
     private String name;
 
 
-
-
-    public Case(){
+    public Item() {
 
     }
 
-    public Case(String name){
+
+    public Item(String name) {
         this.name = name;
     }
 
@@ -23,6 +21,5 @@ public abstract class Case {
     }
 
     public abstract void interaction(Personnage personnage);
-
 
 }

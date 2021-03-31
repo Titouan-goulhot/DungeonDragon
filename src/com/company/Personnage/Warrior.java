@@ -31,8 +31,9 @@ public class Warrior extends Personnage {
     //Constructeur au nom de la la classe qui utlilise la méthode de la classe parente com.company.Personnage permettant de tirer un chiffre au hasard pour la vie et la force.
     public Warrior(){
         this.setLife(this.getRandomInt(5,10));
-        this.setStrenght(this.getRandomInt(5,10));
-
+        this.setStrength(this.getRandomInt(5,10));
+        this.setWeaponUser(true);
+        this.setSpellUser(false);
     }
 
     //-------------------- METHODS-----------------------------//
