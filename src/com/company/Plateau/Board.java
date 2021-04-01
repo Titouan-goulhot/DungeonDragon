@@ -69,16 +69,15 @@ public class Board {
 
 
         //Chercher un élément dans l'Arraylist
-
         if(board.contains(new Dragon())){
             System.out.println("As-tu vu le beau Dragon ?");
         }else{
-            System.out.println("Mais de quel Dragon tu cause ?");
+            System.out.println("Mais de quel Dragon cause tu  ?");
         };
 
 
         //Supprimer un élément de mon Arraylist
-        board.remove(new Dragon());
+       // board.remove(new Dragon());
 
         }
 
