@@ -1,10 +1,10 @@
 package com.company.Weapons;
 
-import com.company.Item;
+import com.company.Interact;
 import com.company.Personnage.Personnage;
 import com.company.Plateau.Case;
 
-public class Weapon extends Case {
+public class Weapon extends Case  {
 
     //-------------------------ATTRIBUTS-------------------------------------//
     private String name;
@@ -47,7 +47,7 @@ public class Weapon extends Case {
 
     //Méthode Abstract hérité de la classe parent Case (qui est en Abstract)
 
-    @Override
+
     public void interaction(Personnage personnage) {
 
         personnage.setStrength(personnage.getStrength() + this.getDamage());

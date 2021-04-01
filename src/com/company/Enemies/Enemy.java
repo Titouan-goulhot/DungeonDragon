@@ -1,10 +1,10 @@
 package com.company.Enemies;
 
-import com.company.InterfaceCombat;
+import com.company.Interact;
 import com.company.Personnage.Personnage;
 import com.company.Plateau.Case;
 
-public class Enemy extends Case {
+public class Enemy extends Case  {
     //-------------------------ATTRIBUTS-------------------------------------//
     private String name;
     private int life;

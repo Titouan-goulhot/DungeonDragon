@@ -8,12 +8,24 @@ import com.company.Plateau.*;
 
 import java.util.Scanner;
 
-public class Game {
+/**
+ * Game est la classe représentant un le déroulé du jeu.
+ *
+ * @author Titouan
+ * @version 2.0
+ */
+public  class Game  {
+
 
     Scanner clavier = new Scanner(System.in);
 
     // Fonction qui fait appel à l'accueuil du joueur
+
+    /**
+     * qui génère l'interface d'accueil du joueur
+     */
     public void mainMenu() {
+
         System.out.println("\n" +
                 "8888888b.                                                               .d8888b.           8888888b.                                              \n" +
                 "888  \"Y88b                                                             d88P  \"88b          888  \"Y88b                                             \n" +
@@ -41,7 +53,12 @@ public class Game {
     }
 
     //Création d'un personnage
+
+    /**
+     * permet de choisir la classe du personnage
+     */
     public void createCharacter() {
+
         System.out.println("Choisissez votre classe : ");
         System.out.println(" 1- Warrior ");
         System.out.println("2- Wizard ");
@@ -77,11 +94,20 @@ public class Game {
             System.out.println("Alors recommençons...");
             createCharacter();
         }
+
         game(player);
+
 
         // PAS DE INSTANCE OF !
     }
 
+
+
+
+    /**
+     *   lance le jeu en prenant en paramètre les attributs de "player"
+     *   @param player correspond au player instancié
+     */
     public void game(Personnage player) {
 
         Dice die = new Dice();
@@ -93,11 +119,16 @@ public class Game {
             int lance = die.randomDice();
 
             //On s'assure dans le setter de ne pas dépasser la case 64
+
+
             try {
 
                 board.setCurrentPlace(board.getCurrentPlace() + lance);
             } catch (PersonnageHorsPlateauException e) {
+
                 System.out.println(e.getMessage());
+
+            }finally{
 
             }
 
@@ -117,7 +148,12 @@ public class Game {
 
     }
 
+    /**
+     *  méthode qui renvoie le message de fin jeu en fonction de l'issue de la session
+     * @param player correspont au joueur
+     */
     public void gameOver(Personnage player) {
+
         if (player.getLife() <= 0) {
             System.out.println("Aïe... c'était le coup de trop... Ton coeur a laché et pour des raisons de restriction budgetaire, il n'y à pas de défibrillateur... Sorry but : \" +\n\n" +
                     "   ▄██████▄     ▄████████   ▄▄▄▄███▄▄▄▄      ▄████████       ▄██████▄   ▄█    █▄     ▄████████    ▄████████ \n" +

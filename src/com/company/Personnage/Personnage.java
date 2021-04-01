@@ -1,6 +1,6 @@
 package com.company.Personnage;
 
-public  class Personnage {
+public abstract  class Personnage {
     //-------------------------ATTRIBUTS-------------------------------------//
     private int life;
     private int minPv;

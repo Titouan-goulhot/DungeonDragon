@@ -1,6 +1,6 @@
 package com.company.Potion;
 
-import com.company.Item;
+import com.company.Interact;
 import com.company.Personnage.Personnage;
 import com.company.Plateau.Case;
 
@@ -46,6 +46,8 @@ public class Potion extends Case {
     }
 
     //Méthode Abstract hérité de la classe parent Case (qui est en Abstract)
+
+
     @Override
     public  void interaction(Personnage personnage) {
 
