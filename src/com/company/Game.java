@@ -14,7 +14,7 @@ import java.util.Scanner;
  * @author Titouan
  * @version 2.0
  */
-public  class Game  {
+public class Game {
 
 
     Scanner clavier = new Scanner(System.in);
@@ -102,11 +102,10 @@ public  class Game  {
     }
 
 
-
-
     /**
-     *   lance le jeu en prenant en paramètre les attributs de "player"
-     *   @param player correspond au player instancié
+     * lance le jeu en prenant en paramètre les attributs de "player"
+     *
+     * @param player correspond au player instancié
      */
     public void game(Personnage player) {
 
@@ -128,10 +127,7 @@ public  class Game  {
 
                 System.out.println(e.getMessage());
 
-            }finally{
-
             }
-
 
             System.out.println("Le dés a fait " + lance + "\n-----------------------------------------");
             System.out.println(board.toString());
@@ -149,7 +145,8 @@ public  class Game  {
     }
 
     /**
-     *  méthode qui renvoie le message de fin jeu en fonction de l'issue de la session
+     * méthode qui renvoie le message de fin jeu en fonction de l'issue de la session
+     *
      * @param player correspont au joueur
      */
     public void gameOver(Personnage player) {
