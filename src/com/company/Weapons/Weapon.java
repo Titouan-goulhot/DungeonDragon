@@ -1,22 +1,23 @@
 package com.company.Weapons;
 
+import com.company.Interact;
 import com.company.Personnage.Personnage;
 import com.company.Plateau.Case;
 
-public class Weapon extends Case {
+public class Weapon extends Case  {
 
     //-------------------------ATTRIBUTS-------------------------------------//
     private String name;
     private int damage;
 
     //-----------------------CONSTRUCTEURS---------------------::
-    public Weapon(String name, int damage){
+    public Weapon(String name, int damage) {
         this.name = name;
         this.damage = damage;
 
     }
 
-    public Weapon(){
+    public Weapon() {
 
     }
     // -----------------------------GETTER & SETTER--------------------------- //
@@ -46,11 +47,11 @@ public class Weapon extends Case {
 
     //Méthode Abstract hérité de la classe parent Case (qui est en Abstract)
 
-    @Override
+
     public void interaction(Personnage personnage) {
 
-        personnage.setStrenght(personnage.getStrenght() + this.getDamage());
+        personnage.setStrength(personnage.getStrength() + this.getDamage());
 
-        System.out.println("Vous avez " + personnage.getStrenght() +" de force d'attaque  ");
+        System.out.println("Vous avez " + personnage.getStrength() + " de force d'attaque  ");
     }
 }

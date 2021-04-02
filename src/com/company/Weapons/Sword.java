@@ -1,6 +1,10 @@
 package com.company.Weapons;
 
-public class Sword extends Weapon{
+import com.company.Personnage.Personnage;
+import com.company.Personnage.Warrior;
+import com.company.Personnage.Wizard;
+
+public class Sword extends Weapon {
     //-------------------------ATTRIBUTS-------------------------------------//
     private String name = "Sword";
     private int damage = 5;
@@ -42,7 +46,19 @@ public class Sword extends Weapon{
 
     public String toString() {
 
-        return  "Un " + name + " qui ajoute " + damage + " à vos point de dégats" +" Condition particulière : il faut être un Guerrier...";
+        return "Un " + name + " qui ajoute " + damage + " à vos point de dégats" + " Condition particulière : il faut être un Guerrier...";
 
+    }
+
+    @Override
+    public void interaction(Personnage personnage) {
+
+        if (personnage.isWeaponUser()) {
+            personnage.setStrength(personnage.getStrength() + this.getDamage());
+            System.out.println("Vous avez " + personnage.getStrength() + " de force d'attaque  ");
+        } else {
+            System.out.println("Pas touche... Si t'es sage je te donne un couteau à beurre à la place.... en plastique ");
+
+        }
     }
 }

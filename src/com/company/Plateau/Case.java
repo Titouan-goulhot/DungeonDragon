@@ -1,20 +1,17 @@
 package com.company.Plateau;
 
+import com.company.Interact;
 import com.company.Personnage.Personnage;
 
-public abstract class Case {
+public abstract class Case implements Interact {
     private String name;
 
 
-    public Case(String name, int impact) {
-        this.name = name;
-    }
-
-    public Case(){
+    public Case() {
 
     }
 
-    public Case(String name){
+    public Case(String name) {
         this.name = name;
     }
 
@@ -23,7 +20,8 @@ public abstract class Case {
         return name;
     }
 
-    public abstract void interaction(Personnage personnage);
 
 
 }
+
+

@@ -1,24 +1,23 @@
 package com.company.Personnage;
 
-import com.company.Enemies.Enemy;
-import com.company.Plateau.PersonnageMort;
-
-public  class Personnage {
+public abstract  class Personnage {
     //-------------------------ATTRIBUTS-------------------------------------//
     private int life;
     private int minPv;
     private int maxPv;
-    private int strenght;
+    private int strength;
     private int minStrength;
     private int maxStrength;
     private String name;
+    private boolean weaponUser;
+    private boolean spellUser;
 
     //-----------------------CONSTRUCTEURS---------------------::
 
-    public Personnage(String name, int life, int strenght){
+    public Personnage(String name, int life, int strength){
         this.name= name;
         this.life = life;
-        this.strenght = strenght;
+        this.strength = strength;
     }
 
     public Personnage(){
@@ -35,16 +34,32 @@ public  class Personnage {
         return life;
     }
 
+    public boolean isSpellUser() {
+        return spellUser;
+    }
+
+    public void setSpellUser(boolean spellUser) {
+        this.spellUser = spellUser;
+    }
+
+    public boolean isWeaponUser() {
+        return weaponUser;
+    }
+
+    public void setWeaponUser(boolean weaponUser) {
+        this.weaponUser = weaponUser;
+    }
+
     public void setLife(int life) {
         this.life = life;
     }
 
-    public int getStrenght() {
-        return strenght;
+    public int getStrength() {
+        return strength;
     }
 
-    public void setStrenght(int strenght) {
-        this.strenght = strenght;
+    public void setStrength(int strength) {
+        this.strength = strength;
     }
 
 
@@ -100,15 +115,8 @@ public  class Personnage {
 
     public String toString() {
         return "Vous aurez donc  [nom = " + getName() + " , niveau de vie = " + getLife()
-                + " , force =" + getStrenght();
+                + " , force =" + getStrength();
     }
 
-    public void dead(int life) throws PersonnageMort {
-        if(getLife() <= 0 ){
-            throw new PersonnageMort();
-        }
-
-
-    }
 
 }

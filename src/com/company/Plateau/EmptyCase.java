@@ -1,8 +1,9 @@
 package com.company.Plateau;
 
+import com.company.Interact;
 import com.company.Personnage.Personnage;
 
-public class EmptyCase extends Case {
+public class EmptyCase extends Case  {
 
     public EmptyCase(String name) {
         super(name);

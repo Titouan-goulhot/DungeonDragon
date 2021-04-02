@@ -1,20 +1,12 @@
 package com.company;
 
 
-import com.company.Enemies.Dragon;
-import com.company.Enemies.Enemy;
-import com.company.Enemies.Sorcier;
-import com.company.Plateau.Board;
-import com.company.Plateau.Case;
-
-import java.util.ArrayList;
-
 public class Main {
 
 
     public static void main(String[] args) {
 
-           Accueil accueil = new Accueil();
+           Game accueil = new Game();
             accueil.mainMenu();
 
 
