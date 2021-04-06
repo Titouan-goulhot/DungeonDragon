@@ -37,52 +37,41 @@ public class Board {
 
     public void fillBoard() {
 
-
         for (int i = 0; i < 10; i++) {
             board.add(new Sorcier());
             board.add(new Goblin());
         }
-        for (int i = 0; i < 6; i++){
+        for (int i = 0; i < 6; i++) {
             board.add(new PotionStandard());
         }
 
-        for (int i = 0; i < 5; i++){
+        for (int i = 0; i < 5; i++) {
             board.add(new Massues());
             board.add(new Eclair());
         }
-        for (int i = 0; i < 4; i++){
+        for (int i = 0; i < 4; i++) {
             board.add(new Sword());
             board.add(new Dragon());
-            board.add(new Sorcier("gandalf", 8 , 9  ));
 
         }
-        for (int i = 0; i < 2; i++){
+        for (int i = 0; i < 2; i++) {
             board.add(new BouleDeFeu());
             board.add(new GrandePotion());
         }
 
-
+        for (int i = 0; i < 16; i++) {
+            board.add(new EmptyCase("La case est vide"));
+        }
 
         //CREER UNE METHODE POUR ENVOYER EN RANDOM LES ELEMENTS DANS LE TABLEAU
         Collections.shuffle(board);
         System.out.println("Vous êtes tombés sur " + board.get(currentPlace));
 
 
-
-        //Chercher un élément dans l'Arraylist
-        /*if(board.contains(new Dragon())){
-            System.out.println("As-tu vu le beau Dragon ?");
-        }else{
-            System.out.println("Mais de quel Dragon cause tu  ?");
-        };*/
-
-
         //Supprimer un élément de mon Arraylist
-       // board.remove(new Dragon());
+        //board.remove(1);
 
-        }
-
-
+    }
 
 
     // -----------------------------GETTER & SETTER--------------------------- //
@@ -99,10 +88,10 @@ public class Board {
     }
 
     //---------------------------------METHODS--------------------------------------//
+
     /**
-     *
-     * @throws PersonnageHorsPlateauException  Si  le player sort du plateau.
      * @param currentPlace renvoit la position du player
+     * @throws PersonnageHorsPlateauException Si  le player sort du plateau.
      */
     public void setCurrentPlace(int currentPlace) throws PersonnageHorsPlateauException {
         if (currentPlace <= 64) {

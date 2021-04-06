@@ -1,6 +1,6 @@
 package com.company.Personnage;
 
-public abstract  class Personnage {
+public abstract class Personnage {
     //-------------------------ATTRIBUTS-------------------------------------//
     private int life;
     private int minPv;
@@ -14,17 +14,17 @@ public abstract  class Personnage {
 
     //-----------------------CONSTRUCTEURS---------------------::
 
-    public Personnage(String name, int life, int strength){
-        this.name= name;
+    public Personnage(String name, int life, int strength) {
+        this.name = name;
         this.life = life;
         this.strength = strength;
     }
 
-    public Personnage(){
+    public Personnage() {
 
     }
 
-    public Personnage (String name){
+    public Personnage(String name) {
         this.name = name;
     }
 
@@ -110,7 +110,6 @@ public abstract  class Personnage {
     public int getRandomInt(int min, int max) {
         return (int) Math.floor(Math.random() * (max - min) + min);
     }
-
 
 
     public String toString() {
