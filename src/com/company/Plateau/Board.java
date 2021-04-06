@@ -53,6 +53,7 @@ public class Board {
         for (int i = 0; i < 4; i++){
             board.add(new Sword());
             board.add(new Dragon());
+            board.add(new Sorcier("gandalf", 8 , 9  ));
 
         }
         for (int i = 0; i < 2; i++){
@@ -69,11 +70,11 @@ public class Board {
 
 
         //Chercher un élément dans l'Arraylist
-        if(board.contains(new Dragon())){
+        /*if(board.contains(new Dragon())){
             System.out.println("As-tu vu le beau Dragon ?");
         }else{
             System.out.println("Mais de quel Dragon cause tu  ?");
-        };
+        };*/
 
 
         //Supprimer un élément de mon Arraylist
