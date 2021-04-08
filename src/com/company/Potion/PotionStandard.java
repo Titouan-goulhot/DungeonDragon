@@ -4,19 +4,17 @@ public class PotionStandard extends Potion{
 
     //-------------------------ATTRIBUTS-------------------------------------//
 
-  private String name = "Potion Standard";
-   private int cure = 2;
+
 
     //-----------------------CONSTRUCTEURS---------------------------------//
 
     public PotionStandard() {
-        super.setName("Potion Standard");
-        super.setCure(2);
+        setName("Potion Standard");
+        setCure(2);
     }
 
     public PotionStandard(String name, int cure){
-        this.name = name;
-        this.cure = cure;
+        super(name, cure);
     }
 
     //---------------------------------METHODS--------------------------------------//

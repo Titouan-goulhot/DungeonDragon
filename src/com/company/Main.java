@@ -1,6 +1,8 @@
 package com.company;
 
 
+import com.company.Personnage.Personnage;
+
 public class Main {
 
 
@@ -18,6 +20,7 @@ public class Main {
         for (Case my_case: board.getBoard()) {
             System.out.println(my_case.toString());
         }*/
+
 
 
     }

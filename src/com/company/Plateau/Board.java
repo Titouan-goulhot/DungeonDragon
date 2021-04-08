@@ -27,6 +27,18 @@ public class Board {
 
 
     }
+    // -----------------------------GETTER & SETTER--------------------------- //
+    public ArrayList<Case> getBoard() {
+        return board;
+    }
+
+    public void setBoard(ArrayList<Case> board) {
+        this.board = board;
+    }
+
+    public int getCurrentPlace() {
+        return currentPlace;
+    }
 
 //---------------------------------METHODS--------------------------------------//
 
@@ -65,7 +77,7 @@ public class Board {
 
         //CREER UNE METHODE POUR ENVOYER EN RANDOM LES ELEMENTS DANS LE TABLEAU
         Collections.shuffle(board);
-        System.out.println("Vous êtes tombés sur " + board.get(currentPlace));
+
 
 
         //Supprimer un élément de mon Arraylist
@@ -74,18 +86,7 @@ public class Board {
     }
 
 
-    // -----------------------------GETTER & SETTER--------------------------- //
-    public ArrayList<Case> getBoard() {
-        return board;
-    }
 
-    public void setBoard(ArrayList<Case> board) {
-        this.board = board;
-    }
-
-    public int getCurrentPlace() {
-        return currentPlace;
-    }
 
     //---------------------------------METHODS--------------------------------------//
 

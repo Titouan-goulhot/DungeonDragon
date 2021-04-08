@@ -73,6 +73,7 @@ public class Game {
 
         if (character == warrior) { // SI c'est Warrior ..
             player = new Warrior();
+
             System.out.println("Un guerrier... un vrai !");
 
         } else { // Si c'est Wizzard ...
@@ -96,7 +97,9 @@ public class Game {
         }
 
         game(player);
-
+        //Sauvegarde Du personnage créé dans la BDD Dungeon&Dragon
+        BDD bdd = new BDD();
+        bdd.savePlayer(player);
 
         // PAS DE INSTANCE OF !
     }
@@ -114,35 +117,34 @@ public class Game {
         Board board = new Board();
 
 
-        do {
-            int lance = die.randomDice();
-
-            //On s'assure dans le setter de ne pas dépasser la case 64
+        while (board.getCurrentPlace() < 64 && player.getLife() > 0) {
 
 
-            try {
+            System.out.println("Appuyer sur L pour lancer le dé");
+            String roll = clavier.next();
+            if (roll.equals("l")) {
+                int lance = die.randomDice();
 
-                board.setCurrentPlace(board.getCurrentPlace() + lance);
-            } catch (PersonnageHorsPlateauException e) {
+                try {
 
-                System.out.println(e.getMessage());
-
+                    board.setCurrentPlace(board.getCurrentPlace() + lance);
+                } catch (PersonnageHorsPlateauException e) {
+                    //On s'assure dans le setter de ne pas dépasser la case 64
+                    System.out.println(e.getMessage());
+                }
+                System.out.println("Le dés a fait " + lance + "\n-----------------------------------------");
+                System.out.println(board.toString());
+                board.fillBoard();
             }
-
-            System.out.println("Le dés a fait " + lance + "\n-----------------------------------------");
-            System.out.println(board.toString());
-            board.fillBoard();
             board.getBoard().get(board.getCurrentPlace()).interaction(player);
-            // Envisager les 3 sorties possibles du combat : win / loose / fuite
-
 
         }
-        while (board.getCurrentPlace() < 64 && player.getLife() > 0);
-
-
         gameOver(player);
 
+
     }
+    // Envisager les 3 sorties possibles du combat : win / loose / fuite
+
 
     /**
      * méthode qui renvoie le message de fin jeu en fonction de l'issue de la session
@@ -153,27 +155,27 @@ public class Game {
 
         if (player.getLife() <= 0) {
             System.out.println("Aïe... c'était le coup de trop... Ton coeur a laché et pour des raisons de restriction budgetaire, il n'y à pas de défibrillateur... Sorry but : \" +\n\n" +
-                    "   ▄██████▄     ▄████████   ▄▄▄▄███▄▄▄▄      ▄████████       ▄██████▄   ▄█    █▄     ▄████████    ▄████████ \n" +
-                    "  ███    ███   ███    ███ ▄██▀▀▀███▀▀▀██▄   ███    ███      ███    ███ ███    ███   ███    ███   ███    ███ \n" +
-                    "  ███    █▀    ███    ███ ███   ███   ███   ███    █▀       ███    ███ ███    ███   ███    █▀    ███    ███ \n" +
-                    " ▄███          ███    ███ ███   ███   ███  ▄███▄▄▄          ███    ███ ███    ███  ▄███▄▄▄      ▄███▄▄▄▄██▀ \n" +
-                    "▀▀███ ████▄  ▀███████████ ███   ███   ███ ▀▀███▀▀▀          ███    ███ ███    ███ ▀▀███▀▀▀     ▀▀███▀▀▀▀▀   \n" +
-                    "  ███    ███   ███    ███ ███   ███   ███   ███    █▄       ███    ███ ███    ███   ███    █▄  ▀███████████ \n" +
-                    "  ███    ███   ███    ███ ███   ███   ███   ███    ███      ███    ███ ███    ███   ███    ███   ███    ███ \n" +
-                    "  ████████▀    ███    █▀   ▀█   ███   █▀    ██████████       ▀██████▀   ▀██████▀    ██████████   ███    ███ \n" +
-                    "                                                                                                 ███    ███ \n"
+                    "   ▄██████▄     ▄████████   ▄▄▄▄███▄▄▄▄      ▄████████       ▄██████▄   ▄█    █▄     ▄████████    ▄████████\n" +
+                    "  ███    ███   ███    ███ ▄██▀▀▀███▀▀▀██▄   ███    ███      ███    ███ ███    ███   ███    ███   ███    ███\n" +
+                    "  ███    █▀    ███    ███ ███   ███   ███   ███    █▀       ███    ███ ███    ███   ███    █▀    ███    ███\n" +
+                    " ▄███          ███    ███ ███   ███   ███  ▄███▄▄▄          ███    ███ ███    ███  ▄███▄▄▄      ▄███▄▄▄▄██▀\n" +
+                    "▀▀███ ████▄  ▀███████████ ███   ███   ███ ▀▀███▀▀▀          ███    ███ ███    ███ ▀▀███▀▀▀     ▀▀███▀▀▀▀▀\n" +
+                    "  ███    ███   ███    ███ ███   ███   ███   ███    █▄       ███    ███ ███    ███   ███    █▄  ▀███████████\n" +
+                    "  ███    ███   ███    ███ ███   ███   ███   ███    ███      ███    ███ ███    ███   ███    ███   ███    ███\n" +
+                    "  ████████▀    ███    █▀   ▀█   ███   █▀    ██████████       ▀██████▀   ▀██████▀    ██████████   ███    ███\n" +
+                    "                                                                                                 ███    ███\n"
             );
         } else {
             System.out.println("System.out.println(\"\\n\" +\n" +
-                    "                \" ▄█    █▄   ▄█   ▄████████     ███      ▄██████▄     ▄████████ ▄██   ▄   \\n\" +\n" +
-                    "                \"███    ███ ███  ███    ███ ▀█████████▄ ███    ███   ███    ███ ███   ██▄ \\n\" +\n" +
-                    "                \"███    ███ ███▌ ███    █▀     ▀███▀▀██ ███    ███   ███    ███ ███▄▄▄███ \\n\" +\n" +
-                    "                \"███    ███ ███▌ ███            ███   ▀ ███    ███  ▄███▄▄▄▄██▀ ▀▀▀▀▀▀███ \\n\" +\n" +
-                    "                \"███    ███ ███▌ ███            ███     ███    ███ ▀▀███▀▀▀▀▀   ▄██   ███ \\n\" +\n" +
-                    "                \"███    ███ ███  ███    █▄      ███     ███    ███ ▀███████████ ███   ███ \\n\" +\n" +
-                    "                \"███    ███ ███  ███    ███     ███     ███    ███   ███    ███ ███   ███ \\n\" +\n" +
-                    "                \" ▀██████▀  █▀   ████████▀     ▄████▀    ▀██████▀    ███    ███  ▀█████▀  \\n\" +\n" +
-                    "                \"                                                    ███    ███           \\n\");");
+                    "                \" ▄█    █▄   ▄█   ▄████████     ███      ▄██████▄     ▄████████ ▄██   ▄\\n\" +\n" +
+                    "                \"███    ███ ███  ███    ███ ▀█████████▄ ███    ███   ███    ███ ███   ██▄\\n\" +\n" +
+                    "                \"███    ███ ███▌ ███    █▀     ▀███▀▀██ ███    ███   ███    ███ ███▄▄▄███\\n\" +\n" +
+                    "                \"███    ███ ███▌ ███            ███   ▀ ███    ███  ▄███▄▄▄▄██▀ ▀▀▀▀▀▀███\\n\" +\n" +
+                    "                \"███    ███ ███▌ ███            ███     ███    ███ ▀▀███▀▀▀▀▀   ▄██   ███\\n\" +\n" +
+                    "                \"███    ███ ███  ███    █▄      ███     ███    ███ ▀███████████ ███   ███\\n\" +\n" +
+                    "                \"███    ███ ███  ███    ███     ███     ███    ███   ███    ███ ███   ███\\n\" +\n" +
+                    "                \" ▀██████▀  █▀   ████████▀     ▄████▀    ▀██████▀    ███    ███  ▀█████▀\\n\" +\n" +
+                    "                \"                                                    ███    ███\\n\");");
 
         }
         System.out.println("Ce fut rapide... Mais vous avez finit le jeu");

@@ -1,6 +1,6 @@
 package com.company.Personnage;
 
-public abstract class Personnage {
+public  class Personnage {
     //-------------------------ATTRIBUTS-------------------------------------//
     private int life;
     private int minPv;
@@ -11,6 +11,7 @@ public abstract class Personnage {
     private String name;
     private boolean weaponUser;
     private boolean spellUser;
+    private String specialties;
 
     //-----------------------CONSTRUCTEURS---------------------::
 
@@ -30,6 +31,14 @@ public abstract class Personnage {
 
 
     // -----------------------------GETTER & SETTER--------------------------- //
+    public String getSpecialties() {
+        return specialties;
+    }
+
+    public void setSpecialties(String specialties) {
+        this.specialties = specialties;
+    }
+
     public int getLife() {
         return life;
     }

@@ -1,27 +1,48 @@
 package com.company;
 
+import com.company.Personnage.Personnage;
 import com.mysql.cj.protocol.Resultset;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class BDD {
 
-    public static void main(String[] args){
+    public void savePlayer(Personnage player) {
 
+        //ATTRIBUTS
 
-        String url ="jdbc:mysql://localhost:3306/dungeon&dragon?serverTimezone=UTC";
+        String url = "jdbc:mysql://localhost:3307/dungeon&dragon?serverTimezone=UTC";
         String userName = "root";
-        String password = "root";
+        String password = "Ressorts999!";
+        String REQUETE = "INSERT INTO playersaved(name, health, attack)  VALUES(?, ?, ?)";
+        PreparedStatement statement;
+
+        //Connexion et Sauvegarde du Personnage en BDD
 
         try {
-            Connection con = DriverManager.getConnection(url, userName, password);
-            Statement statement = con.createStatement();
-            statement.execute("insert into player(name) values('clavier')");
 
-        }catch (SQLException e) {
+            Connection con = DriverManager.getConnection(url, userName, password);
+            statement = con.prepareStatement(REQUETE);
+            statement.setString(1, player.getName());
+            statement.setInt(2, player.getLife());
+            statement.setInt(3, player.getStrength());
+
+
+            statement.execute();
+
+            //Affichage des infos dans la BDD Dungeon&Dragon
+            ResultSet result = statement.executeQuery("Select * from playersaved");
+            System.out.println("Voici la liste des héros sauvegardés :");
+            while (result.next())
+                System.out.println(
+                                "name : " + result.getString(1) + "\n" +
+                                "health : " + result.getInt(2) + "\n" +
+                                "attack : " + result.getInt(3) +
+                                "\n"
+                );
+            con.close();
+
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

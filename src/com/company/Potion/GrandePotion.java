@@ -5,19 +5,19 @@ import com.company.Personnage.Personnage;
 public class GrandePotion extends Potion {
     //-------------------------ATTRIBUTS-------------------------------------//
 
-    private String name;
-    private int cure ;
+
 
     //-----------------------CONSTRUCTEURS---------------------------------//
     public GrandePotion() {
-        super.setName("Grande Potion de Soin");
-        super.setCure(5);
+       setName("Grande Potion de Soin");
+       setCure(5);
     }
 
     public GrandePotion(String name, int cure) {
-        this.name = name;
-        this.cure = cure;
+       super(name, cure);
     }
+
+
 
     //---------------------------------METHODS--------------------------------------//
 
