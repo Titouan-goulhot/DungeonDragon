@@ -95,7 +95,7 @@ public class Board {
      * @throws PersonnageHorsPlateauException Si  le player sort du plateau.
      */
     public void setCurrentPlace(int currentPlace) throws PersonnageHorsPlateauException {
-        if (currentPlace <= 64) {
+        if (currentPlace < 64) {
             this.currentPlace = currentPlace;
         } else {
             this.currentPlace = 64;

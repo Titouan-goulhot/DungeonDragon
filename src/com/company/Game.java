@@ -127,14 +127,17 @@ public class Game {
                 try {
 
                     board.setCurrentPlace(board.getCurrentPlace() + lance);
+                    System.out.println("Le dés a fait " + lance + "\n-----------------------------------------");
+                    System.out.println(board.toString());
+                    System.out.println("Vous êtes tombés sur " + board.getBoard().get(board.getCurrentPlace()));
+                    board.getBoard().get(board.getCurrentPlace()).interaction(player);
+                    player.interaction(board.getBoard().get(board.getCurrentPlace()));
+
                 } catch (PersonnageHorsPlateauException e) {
                     //On s'assure dans le setter de ne pas dépasser la case 64
                     System.out.println(e.getMessage());
                 }
-                System.out.println("Le dés a fait " + lance + "\n-----------------------------------------");
-                System.out.println(board.toString());
-                board.fillBoard();
-                board.getBoard().get(board.getCurrentPlace()).interaction(player);
+
 
             }
 

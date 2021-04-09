@@ -59,10 +59,6 @@ public class Enemy extends Case  {
     @Override
     public void interaction(Personnage personnage) {
 
-        //Faire l'attaque du player 1er
-        while (getLife() > 0 && personnage.getLife() > 0) {
-            setLife(getLife() - personnage.getStrength());
-            System.out.println("Vous attaquez. Vous lui infligez " + personnage.getStrength() + "\n Il lui reste " + getLife());
 
             if (getLife() > 0) {
                 // Puis le monstre réplique
@@ -71,7 +67,7 @@ public class Enemy extends Case  {
             } else {
                 System.out.println("Vous l'avez térassé... Vous pouvez continuer ");
             }
-        }
+
 
 
     }

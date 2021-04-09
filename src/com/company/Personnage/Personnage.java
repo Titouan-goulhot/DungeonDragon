@@ -3,6 +3,7 @@ package com.company.Personnage;
 import com.company.Enemies.Enemy;
 import com.company.Fight;
 import com.company.Interact;
+import com.company.Plateau.Case;
 
 public  class Personnage implements Fight {
     //-------------------------ATTRIBUTS-------------------------------------//
@@ -132,8 +133,16 @@ public  class Personnage implements Fight {
 
 
     @Override
-    public void fight() {
-
+    public void interaction(Case cell) {
+        if (cell instanceof Enemy) {
+            //On Cast la classe Enemy dans la variable cell
+            Enemy monster = (Enemy)cell;
+            if (monster.getLife() > 0 && life > 0) {
+                monster.setLife(monster.getLife() - strength);
+                System.out.println("Vous attaquez. Vous lui infligez " + strength + "\n Il lui reste " + monster.getLife());
+            }
+        }
     }
-}
+    }
+
 
