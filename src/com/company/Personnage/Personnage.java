@@ -1,6 +1,10 @@
 package com.company.Personnage;
 
-public  class Personnage {
+import com.company.Enemies.Enemy;
+import com.company.Fight;
+import com.company.Interact;
+
+public  class Personnage implements Fight {
     //-------------------------ATTRIBUTS-------------------------------------//
     private int life;
     private int minPv;
@@ -127,4 +131,9 @@ public  class Personnage {
     }
 
 
+    @Override
+    public void fight() {
+
+    }
 }
+

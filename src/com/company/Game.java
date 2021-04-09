@@ -115,10 +115,9 @@ public class Game {
         Dice die = new Dice();
         System.out.println("Alors Go ! Vous commencez à la Case 0\n----------------------------------------------------- ");
         Board board = new Board();
-
+        board.fillBoard();
 
         while (board.getCurrentPlace() < 64 && player.getLife() > 0) {
-
 
             System.out.println("Appuyer sur L pour lancer le dé");
             String roll = clavier.next();
@@ -135,12 +134,12 @@ public class Game {
                 System.out.println("Le dés a fait " + lance + "\n-----------------------------------------");
                 System.out.println(board.toString());
                 board.fillBoard();
+                board.getBoard().get(board.getCurrentPlace()).interaction(player);
+
             }
-            board.getBoard().get(board.getCurrentPlace()).interaction(player);
 
         }
         gameOver(player);
-
 
     }
     // Envisager les 3 sorties possibles du combat : win / loose / fuite

@@ -77,7 +77,7 @@ public class Board {
 
         //CREER UNE METHODE POUR ENVOYER EN RANDOM LES ELEMENTS DANS LE TABLEAU
         Collections.shuffle(board);
-
+        System.out.println("Vous êtes tombés sur " + board.get(currentPlace));
 
 
         //Supprimer un élément de mon Arraylist
