@@ -72,12 +72,11 @@ public class Board {
         }
 
         for (int i = 0; i < 16; i++) {
-            board.add(new EmptyCase("La case est vide"));
+            board.add(new EmptyCase(""));
         }
 
         //CREER UNE METHODE POUR ENVOYER EN RANDOM LES ELEMENTS DANS LE TABLEAU
         Collections.shuffle(board);
-        System.out.println("Vous êtes tombés sur " + board.get(currentPlace));
 
 
         //Supprimer un élément de mon Arraylist

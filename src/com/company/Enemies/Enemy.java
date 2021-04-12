@@ -4,6 +4,8 @@ import com.company.Interact;
 import com.company.Personnage.Personnage;
 import com.company.Plateau.Case;
 
+import java.util.Scanner;
+
 public class Enemy extends Case  {
     //-------------------------ATTRIBUTS-------------------------------------//
     private String name;
@@ -59,11 +61,11 @@ public class Enemy extends Case  {
     @Override
     public void interaction(Personnage personnage) {
 
-
             if (getLife() > 0) {
                 // Puis le monstre réplique
                 personnage.setLife(personnage.getLife() - getStrength());
                 System.out.println("il vous attaque, vous perdez " + getStrength() + " Point de vie \nIl vous en reste " + personnage.getLife());
+
             } else {
                 System.out.println("Vous l'avez térassé... Vous pouvez continuer ");
             }

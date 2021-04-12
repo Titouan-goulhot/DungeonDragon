@@ -101,6 +101,7 @@ public class Game {
         BDD bdd = new BDD();
         bdd.savePlayer(player);
 
+
         // PAS DE INSTANCE OF !
     }
 
@@ -125,13 +126,27 @@ public class Game {
                 int lance = die.randomDice();
 
                 try {
+                    int positionJoueur = board.getCurrentPlace();
 
-                    board.setCurrentPlace(board.getCurrentPlace() + lance);
+                    board.setCurrentPlace(positionJoueur + lance);
                     System.out.println("Le dés a fait " + lance + "\n-----------------------------------------");
                     System.out.println(board.toString());
-                    System.out.println("Vous êtes tombés sur " + board.getBoard().get(board.getCurrentPlace()));
-                    board.getBoard().get(board.getCurrentPlace()).interaction(player);
-                    player.interaction(board.getBoard().get(board.getCurrentPlace()));
+                    System.out.println("Vous êtes tombés sur " + board.getBoard().get(positionJoueur));
+                    board.getBoard().get(positionJoueur).interaction(player);
+
+                    //--------------------------------------------POSSIBILITE DE FUITE OU D'ATTAQUE-------------------------------------------------//
+
+                    if (board.getBoard().get(positionJoueur) instanceof Enemy && player.getLife() > 0) {
+                        System.out.println("Vous allez pas vous laissez faire ! vous répliquez ? \n1 >oui\n2 >non je suis pacifiste");
+                        if (clavier.nextInt() == 1) {
+                            player.interaction(board.getBoard().get(positionJoueur));
+                        } else {
+                            System.out.println("Malgré votre bienveillance, votre ennemi semble quand même vouloir vous taper...\nTu veux tendre l'autre joue tant qu'à faire ?\nNon ?\nAlors cours !");
+                            board.setCurrentPlace(board.getCurrentPlace() - lance);
+                            System.out.println("Replis stratégique, tu te retrouve à la case " + positionJoueur);
+                        }
+                    }
+
 
                 } catch (PersonnageHorsPlateauException e) {
                     //On s'assure dans le setter de ne pas dépasser la case 64
@@ -143,10 +158,10 @@ public class Game {
 
         }
         gameOver(player);
-
+        BDD bdd = new BDD();
+        bdd.showPlayers();
     }
     // Envisager les 3 sorties possibles du combat : win / loose / fuite
-
 
     /**
      * méthode qui renvoie le message de fin jeu en fonction de l'issue de la session

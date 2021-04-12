@@ -52,7 +52,7 @@ public class Potion extends Case {
     public  void interaction(Personnage personnage) {
 
         personnage.setLife(personnage.getLife() + this.getCure());
-        System.out.println("Vous avez gagné " + getCure() + " point de vie \nce que vous fait " + personnage.getLife());
+        System.out.println("Vous avez gagné " + getCure() + " point de vie \nce qui vous fait " + personnage.getLife());
 
     }
 }

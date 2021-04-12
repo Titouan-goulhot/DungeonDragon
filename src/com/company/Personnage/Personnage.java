@@ -3,7 +3,11 @@ package com.company.Personnage;
 import com.company.Enemies.Enemy;
 import com.company.Fight;
 import com.company.Interact;
+import com.company.Plateau.Board;
 import com.company.Plateau.Case;
+import com.company.Plateau.Dice;
+
+import java.util.Scanner;
 
 public  class Personnage implements Fight {
     //-------------------------ATTRIBUTS-------------------------------------//
@@ -136,13 +140,24 @@ public  class Personnage implements Fight {
     public void interaction(Case cell) {
         if (cell instanceof Enemy) {
             //On Cast la classe Enemy dans la variable cell
+
             Enemy monster = (Enemy)cell;
-            if (monster.getLife() > 0 && life > 0) {
-                monster.setLife(monster.getLife() - strength);
-                System.out.println("Vous attaquez. Vous lui infligez " + strength + "\n Il lui reste " + monster.getLife());
+
+                if (monster.getLife() > 0 && life > 0) {
+                    monster.setLife(monster.getLife() - strength);
+                    System.out.println("Vous attaquez. Vous lui infligez " + strength + "\n Il lui reste " + monster.getLife());
+                    if(monster.getLife() > 0){
+                        System.out.println("il est résistant le bougre ! Mais tu lui as fait peur... Il s'enfuit, peut être pour mieux te retrouver plus tard");
+                    }
+                }if(monster.getLife() <= 0){
+                System.out.println("Vous l'avez térassé... Vous pouvez continuer ");
+
             }
+
+            }
+
         }
     }
-    }
+
 
 
